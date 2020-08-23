@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.13.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.31.0" />
+    <PackageReference Include="Grpc.Net.ClientFactory" Version="2.23.2" />
+    <PackageReference Include="Grpc.Tools" Version="2.31.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="protos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="..\GrpcService.Web\GrpcService.Web\protos\Enum.proto" GrpcServices="None">
+      <Link>Protos\Enum.proto</Link>
+    </Protobuf>
+    <Protobuf Include="..\GrpcService.Web\GrpcService.Web\protos\Message.proto" GrpcServices="Client">
+      <Link>Protos\Message.proto</Link>
+    </Protobuf>
+  </ItemGroup>
+
+</Project>

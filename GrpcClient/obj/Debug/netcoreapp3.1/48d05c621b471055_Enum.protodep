@@ -1,0 +1,1 @@
+obj\Debug\netcoreapp3.1/Enum.cs: ../GrpcService.Web/GrpcService.Web/protos/Enum.proto
