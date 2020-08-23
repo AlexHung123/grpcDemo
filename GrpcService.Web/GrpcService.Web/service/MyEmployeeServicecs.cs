@@ -24,6 +24,7 @@ namespace GrpcService.Web.service
             _jwtTokenValidationService = jwtTokenValidationService;
         }
 
+        [AllowAnonymous]
         public override async Task<TokenResponse> CreateToken(TokenRequest request, ServerCallContext context)
         {
             var usermodel = new UserModel

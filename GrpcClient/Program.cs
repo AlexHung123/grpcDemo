@@ -11,6 +11,7 @@
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.IO;
+    using System.Reflection.Metadata.Ecma335;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -18,6 +19,11 @@
     /// </summary>
     internal class Program
     {
+        private static string _token;
+        private static DateTime _expiration = DateTime.MinValue; 
+        
+        
+        
         /// <summary>
         /// The Main.
         /// </summary>
@@ -39,7 +45,8 @@
                 });
             var client = new EmployeeService.EmployeeServiceClient(channel);
 
-            var option = int.Parse(args[0]);
+            //var option = int.Parse(args[0]);
+            var option = 1;
             switch (option)
             {
                 case 1:
@@ -60,24 +67,30 @@
 
           
         }
+        private static bool NeedToken() => string.IsNullOrEmpty(_token) || _expiration > DateTime.UtcNow;
+
 
         public static async Task GetByNoAsync(EmployeeService.EmployeeServiceClient client)
         {
-            var md = new Metadata
-            {
-                {"userName","dave"},
-                {"rolr","administrator"}
-            };
+         
 
             try
             {
-                var response = await client.GetByNoAsync(new GetByNoRequest
+                if (!NeedToken()||await GetTokenaysnc(client))
                 {
-                    No = 1991
-                }, md);
+                    var header = new Metadata
+                    {
+                        {"Authorization",$"Bearer {_token}"}
+                    };
 
-                Console.WriteLine($"Response message: {response}");
-                Console.ReadKey();
+                    var response = await client.GetByNoAsync(new GetByNoRequest
+                    {
+                        No = 1991
+                    }, header);
+
+                    Console.WriteLine($"Response message: {response}");
+                    Console.ReadKey();
+                }
             }
             catch (RpcException e)
             {
@@ -87,12 +100,24 @@
                 }
                 Log.Logger.Error(e.Message);
             }
-            
-            
-            
-          
+        }
 
-            
+        private static async Task<bool> GetTokenaysnc(EmployeeService.EmployeeServiceClient client)
+        {
+            var request = new TokenRequest
+            {
+                Username = "admin",
+                Password = "1234"
+            };
+
+            var response = await client.CreateTokenAsync(request);
+            if (response.Success)
+            {
+                _token = response.Toke;
+                _expiration = response.Expiration.ToDateTime();
+                return true;
+            }
+            return false;
         }
 
         public static async Task GetAllAsync(EmployeeService.EmployeeServiceClient client)

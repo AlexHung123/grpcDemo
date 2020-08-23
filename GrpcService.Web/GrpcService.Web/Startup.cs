@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using GrpcServer.Web.protos;
 using GrpcService.Web.service;
@@ -9,6 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 
 namespace GrpcService.Web
 {
@@ -22,7 +24,15 @@ namespace GrpcService.Web
             services.AddGrpc();
             services.AddAuthorization();
             services.AddAuthentication()
-                .AddJwtBearer();
+                .AddJwtBearer(options => 
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidIssuer= "localhost",
+                        ValidAudience = "localhost",
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("111-2222222222--3333333333333333333333333444--6"))
+                    };
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
