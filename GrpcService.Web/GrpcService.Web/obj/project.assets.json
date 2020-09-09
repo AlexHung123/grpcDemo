@@ -4254,11 +4254,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\source\\repos\\GrpcService.Web\\GrpcService.Web\\GrpcService.Web.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\D\\grpcDemo\\GrpcService.Web\\GrpcService.Web\\GrpcService.Web.csproj",
       "projectName": "GrpcService.Web",
-      "projectPath": "C:\\Users\\user\\source\\repos\\GrpcService.Web\\GrpcService.Web\\GrpcService.Web.csproj",
+      "projectPath": "C:\\Users\\user\\Desktop\\D\\grpcDemo\\GrpcService.Web\\GrpcService.Web\\GrpcService.Web.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\source\\repos\\GrpcService.Web\\GrpcService.Web\\obj\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\D\\grpcDemo\\GrpcService.Web\\GrpcService.Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",

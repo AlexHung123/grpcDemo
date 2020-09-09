@@ -35,14 +35,18 @@ namespace GrpcServer.Web.protos {
             "ZRIbCghlbXBsb3llZRgBIAEoCzIJLkVtcGxveWVlIiAKEEFkZFBob3RvUmVz",
             "cG9uc2USDAoEaXNPaxgBIAEoCCIPCg1HZXRBbGxSZXF1ZXN0IicKD0VtcGxv",
             "eWVlUmVxdWVzdBIUCgFlGAEgASgLMgkuRW1wbG95ZWUiIAoQQWRkUGhvdG9S",
-            "ZXF1ZXN0cxIMCgRkYXRhGAEgASgMMoQCCg9FbXBsb3llZVNlcnZpY2USLQoH",
-            "R2V0QnlObxIPLkdldEJ5Tm9SZXF1ZXN0GhEuRW1wbG95ZWVSZXNwb25zZRIt",
-            "CgZHZXRBbGwSDi5HZXRBbGxSZXF1ZXN0GhEuRW1wbG95ZWVSZXNwb25zZTAB",
-            "EjIKCEFkZFBob3RvEhEuQWRkUGhvdG9SZXF1ZXN0cxoRLkFkZFBob3RvUmVz",
-            "cG9uc2UoARIrCgRTYXZlEhAuRW1wbG95ZWVSZXF1ZXN0GhEuRW1wbG95ZWVS",
-            "ZXNwb25zZRIyCgdTYXZlQWxsEhAuRW1wbG95ZWVSZXF1ZXN0GhEuRW1wbG95",
-            "ZWVSZXNwb25zZSgBMAFCGKoCFUdycGNTZXJ2ZXIuV2ViLnByb3Rvc2IGcHJv",
-            "dG8z"));
+            "ZXF1ZXN0cxIMCgRkYXRhGAEgASgMIjIKDFRva2VuUmVxdWVzdBIQCgh1c2Vy",
+            "bmFtZRgBIAEoCRIQCghwYXNzd29yZBgCIAEoCSJeCg1Ub2tlblJlc3BvbnNl",
+            "EgwKBHRva2UYASABKAkSLgoKZXhwaXJhdGlvbhgCIAEoCzIaLmdvb2dsZS5w",
+            "cm90b2J1Zi5UaW1lc3RhbXASDwoHc3VjY2VzcxgDIAEoCDKyAgoPRW1wbG95",
+            "ZWVTZXJ2aWNlEi0KB0dldEJ5Tm8SDy5HZXRCeU5vUmVxdWVzdBoRLkVtcGxv",
+            "eWVlUmVzcG9uc2USLQoGR2V0QWxsEg4uR2V0QWxsUmVxdWVzdBoRLkVtcGxv",
+            "eWVlUmVzcG9uc2UwARIyCghBZGRQaG90bxIRLkFkZFBob3RvUmVxdWVzdHMa",
+            "ES5BZGRQaG90b1Jlc3BvbnNlKAESKwoEU2F2ZRIQLkVtcGxveWVlUmVxdWVz",
+            "dBoRLkVtcGxveWVlUmVzcG9uc2USMgoHU2F2ZUFsbBIQLkVtcGxveWVlUmVx",
+            "dWVzdBoRLkVtcGxveWVlUmVzcG9uc2UoATABEiwKC0NyZWF0ZVRva2VuEg0u",
+            "VG9rZW5SZXF1ZXN0Gg4uVG9rZW5SZXNwb25zZUIYqgIVR3JwY1NlcnZlci5X",
+            "ZWIucHJvdG9zYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::GrpcService.Web.protos.EnumReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -53,7 +57,9 @@ namespace GrpcServer.Web.protos {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcServer.Web.protos.AddPhotoResponse), global::GrpcServer.Web.protos.AddPhotoResponse.Parser, new[]{ "IsOk" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcServer.Web.protos.GetAllRequest), global::GrpcServer.Web.protos.GetAllRequest.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcServer.Web.protos.EmployeeRequest), global::GrpcServer.Web.protos.EmployeeRequest.Parser, new[]{ "E" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcServer.Web.protos.AddPhotoRequests), global::GrpcServer.Web.protos.AddPhotoRequests.Parser, new[]{ "Data" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcServer.Web.protos.AddPhotoRequests), global::GrpcServer.Web.protos.AddPhotoRequests.Parser, new[]{ "Data" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcServer.Web.protos.TokenRequest), global::GrpcServer.Web.protos.TokenRequest.Parser, new[]{ "Username", "Password" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcServer.Web.protos.TokenResponse), global::GrpcServer.Web.protos.TokenResponse.Parser, new[]{ "Toke", "Expiration", "Success" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1279,6 +1285,354 @@ namespace GrpcServer.Web.protos {
             break;
           case 10: {
             Data = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class TokenRequest : pb::IMessage<TokenRequest> {
+    private static readonly pb::MessageParser<TokenRequest> _parser = new pb::MessageParser<TokenRequest>(() => new TokenRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<TokenRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GrpcServer.Web.protos.MessageReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TokenRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TokenRequest(TokenRequest other) : this() {
+      username_ = other.username_;
+      password_ = other.password_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TokenRequest Clone() {
+      return new TokenRequest(this);
+    }
+
+    /// <summary>Field number for the "username" field.</summary>
+    public const int UsernameFieldNumber = 1;
+    private string username_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Username {
+      get { return username_; }
+      set {
+        username_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "password" field.</summary>
+    public const int PasswordFieldNumber = 2;
+    private string password_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Password {
+      get { return password_; }
+      set {
+        password_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as TokenRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(TokenRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Username != other.Username) return false;
+      if (Password != other.Password) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Username.Length != 0) hash ^= Username.GetHashCode();
+      if (Password.Length != 0) hash ^= Password.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Username.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Username);
+      }
+      if (Password.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Password);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Username.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Username);
+      }
+      if (Password.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Password);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(TokenRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Username.Length != 0) {
+        Username = other.Username;
+      }
+      if (other.Password.Length != 0) {
+        Password = other.Password;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Username = input.ReadString();
+            break;
+          }
+          case 18: {
+            Password = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class TokenResponse : pb::IMessage<TokenResponse> {
+    private static readonly pb::MessageParser<TokenResponse> _parser = new pb::MessageParser<TokenResponse>(() => new TokenResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<TokenResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GrpcServer.Web.protos.MessageReflection.Descriptor.MessageTypes[9]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TokenResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TokenResponse(TokenResponse other) : this() {
+      toke_ = other.toke_;
+      expiration_ = other.expiration_ != null ? other.expiration_.Clone() : null;
+      success_ = other.success_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TokenResponse Clone() {
+      return new TokenResponse(this);
+    }
+
+    /// <summary>Field number for the "toke" field.</summary>
+    public const int TokeFieldNumber = 1;
+    private string toke_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Toke {
+      get { return toke_; }
+      set {
+        toke_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "expiration" field.</summary>
+    public const int ExpirationFieldNumber = 2;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp expiration_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp Expiration {
+      get { return expiration_; }
+      set {
+        expiration_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "success" field.</summary>
+    public const int SuccessFieldNumber = 3;
+    private bool success_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Success {
+      get { return success_; }
+      set {
+        success_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as TokenResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(TokenResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Toke != other.Toke) return false;
+      if (!object.Equals(Expiration, other.Expiration)) return false;
+      if (Success != other.Success) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Toke.Length != 0) hash ^= Toke.GetHashCode();
+      if (expiration_ != null) hash ^= Expiration.GetHashCode();
+      if (Success != false) hash ^= Success.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Toke.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Toke);
+      }
+      if (expiration_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Expiration);
+      }
+      if (Success != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(Success);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Toke.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Toke);
+      }
+      if (expiration_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Expiration);
+      }
+      if (Success != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(TokenResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Toke.Length != 0) {
+        Toke = other.Toke;
+      }
+      if (other.expiration_ != null) {
+        if (expiration_ == null) {
+          Expiration = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        Expiration.MergeFrom(other.Expiration);
+      }
+      if (other.Success != false) {
+        Success = other.Success;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Toke = input.ReadString();
+            break;
+          }
+          case 18: {
+            if (expiration_ == null) {
+              Expiration = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(Expiration);
+            break;
+          }
+          case 24: {
+            Success = input.ReadBool();
             break;
           }
         }

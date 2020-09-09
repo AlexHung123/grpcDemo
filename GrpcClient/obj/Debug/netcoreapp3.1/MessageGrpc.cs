@@ -18,6 +18,8 @@ namespace GrpcServer.Web.protos {
     static readonly grpc::Marshaller<global::GrpcServer.Web.protos.AddPhotoRequests> __Marshaller_AddPhotoRequests = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServer.Web.protos.AddPhotoRequests.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GrpcServer.Web.protos.AddPhotoResponse> __Marshaller_AddPhotoResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServer.Web.protos.AddPhotoResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GrpcServer.Web.protos.EmployeeRequest> __Marshaller_EmployeeRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServer.Web.protos.EmployeeRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServer.Web.protos.TokenRequest> __Marshaller_TokenRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServer.Web.protos.TokenRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcServer.Web.protos.TokenResponse> __Marshaller_TokenResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcServer.Web.protos.TokenResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::GrpcServer.Web.protos.GetByNoRequest, global::GrpcServer.Web.protos.EmployeeResponse> __Method_GetByNo = new grpc::Method<global::GrpcServer.Web.protos.GetByNoRequest, global::GrpcServer.Web.protos.EmployeeResponse>(
         grpc::MethodType.Unary,
@@ -53,6 +55,13 @@ namespace GrpcServer.Web.protos {
         "SaveAll",
         __Marshaller_EmployeeRequest,
         __Marshaller_EmployeeResponse);
+
+    static readonly grpc::Method<global::GrpcServer.Web.protos.TokenRequest, global::GrpcServer.Web.protos.TokenResponse> __Method_CreateToken = new grpc::Method<global::GrpcServer.Web.protos.TokenRequest, global::GrpcServer.Web.protos.TokenResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "CreateToken",
+        __Marshaller_TokenRequest,
+        __Marshaller_TokenResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -138,6 +147,22 @@ namespace GrpcServer.Web.protos {
       public virtual grpc::AsyncDuplexStreamingCall<global::GrpcServer.Web.protos.EmployeeRequest, global::GrpcServer.Web.protos.EmployeeResponse> SaveAll(grpc::CallOptions options)
       {
         return CallInvoker.AsyncDuplexStreamingCall(__Method_SaveAll, null, options);
+      }
+      public virtual global::GrpcServer.Web.protos.TokenResponse CreateToken(global::GrpcServer.Web.protos.TokenRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CreateToken(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::GrpcServer.Web.protos.TokenResponse CreateToken(global::GrpcServer.Web.protos.TokenRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_CreateToken, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::GrpcServer.Web.protos.TokenResponse> CreateTokenAsync(global::GrpcServer.Web.protos.TokenRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CreateTokenAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::GrpcServer.Web.protos.TokenResponse> CreateTokenAsync(global::GrpcServer.Web.protos.TokenRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_CreateToken, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override EmployeeServiceClient NewInstance(ClientBaseConfiguration configuration)

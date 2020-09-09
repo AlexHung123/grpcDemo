@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\source\\repos\\GrpcClient\\GrpcClient.csproj": {}
+    "C:\\Users\\user\\Desktop\\D\\grpcDemo\\GrpcClient\\GrpcClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\source\\repos\\GrpcClient\\GrpcClient.csproj": {
+    "C:\\Users\\user\\Desktop\\D\\grpcDemo\\GrpcClient\\GrpcClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\source\\repos\\GrpcClient\\GrpcClient.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\D\\grpcDemo\\GrpcClient\\GrpcClient.csproj",
         "projectName": "GrpcClient",
-        "projectPath": "C:\\Users\\user\\source\\repos\\GrpcClient\\GrpcClient.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\D\\grpcDemo\\GrpcClient\\GrpcClient.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\source\\repos\\GrpcClient\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\D\\grpcDemo\\GrpcClient\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",

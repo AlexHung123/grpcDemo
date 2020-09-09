@@ -99,7 +99,8 @@ namespace GrpcService.Web.service
 
         }
 
-        public override async Task GetAll(GetAllRequest request, IServerStreamWriter<EmployeeResponse> responseStream, ServerCallContext context)
+        public override async Task GetAll(GetAllRequest request, IServerStreamWriter<EmployeeResponse> responseStream, 
+            ServerCallContext context)
         {
             foreach (var employee in InMemoryData.Employees)
             {
@@ -131,7 +132,8 @@ namespace GrpcService.Web.service
             };
         }
 
-        public override async Task SaveAll(IAsyncStreamReader<EmployeeRequest> requestStream, IServerStreamWriter<EmployeeResponse> responseStream, ServerCallContext context)
+        public override async Task SaveAll(IAsyncStreamReader<EmployeeRequest> requestStream, 
+            IServerStreamWriter<EmployeeResponse> responseStream, ServerCallContext context)
         {
             while(await requestStream.MoveNext())
             {
